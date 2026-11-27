@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Smashius Clay · Comedian</title>
+<meta name="description" content="Smashius Clay — Chicago stand-up comedian. Watch clips, catch a show, book him for your stage, party, campus or brand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;800&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+/* VOICE: loud, cocky, warm — the way a host hypes you up before the set
+   IDEA: a wheat-pasted club flyer on a Chicago brick wall, torn edges and tape
+   PICTURE: a giant stacked name, a mic in a hard spotlight, a "LIVE" sticker slapped on top
+   COLOUR and TYPE: highlighter yellow ground, ink black, stop-sign red accent; Anton for shouting, Archivo for talking, Permanent Marker for the scribbles
+   LAYOUT: flyer hero full bleed, ticker tape, clips grid, story, shows, booking form in one calm column, loud footer */
+:root{color-scheme:light dark;--y:#ffd60a;--k:#0d0d0d;--r:#e5161d;--w:#fffdf5;
+ --bg:light-dark(#fffdf5,#0d0d0d);--ink:light-dark(#0d0d0d,#fffdf5);--card:light-dark(#fff,#1a1a1a);--line:light-dark(#0d0d0d,#fffdf5)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 Archivo,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+.band{padding:clamp(36px,5vw,80px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+h1,h2,h3{font-family:Anton,Impact,sans-serif;font-weight:400;line-height:1.02;margin:0;text-wrap:balance}
+h2{font-size:clamp(40px,6vw,72px);text-transform:uppercase}
+.mark{font-family:"Permanent Marker",cursive}
+.sample{background:var(--k);color:var(--y);font-size:13px;text-align:center;padding:7px 12px}
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:var(--k);color:var(--w);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 20px;padding:10px max(5vw,16px)}
+nav .logo{font-family:Anton,sans-serif;font-size:26px;letter-spacing:.5px;text-decoration:none}
+nav .logo b{color:var(--y);font-weight:400}
+nav ul{display:flex;flex-wrap:wrap;gap:4px 18px;list-style:none;margin:0;padding:0;font-weight:800}
+nav ul a{text-decoration:none;padding:10px 2px;display:inline-block}
+nav ul a:hover,nav ul a:focus-visible{color:var(--y)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;font:800 17px Archivo,sans-serif;text-decoration:none;border:3px solid var(--k);cursor:pointer;transition:transform .12s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--k)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--r);outline-offset:2px}
+.btn.red{background:var(--r);color:#fff}.btn.black{background:var(--k);color:var(--y)}.btn.ghost{background:transparent;color:var(--k)}
+nav .btn{min-height:44px;border-color:var(--y);background:var(--y);color:var(--k)}
+/* hero */
+.hero{background:var(--y);color:var(--k);position:relative;overflow:hidden;padding:clamp(28px,4vw,56px) max(5vw,16px) clamp(56px,6vw,90px)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:28px;background:var(--bg);
+ clip-path:polygon(0 60%,4% 20%,9% 70%,14% 30%,19% 80%,25% 35%,31% 75%,37% 25%,43% 70%,49% 30%,55% 80%,61% 40%,67% 75%,73% 30%,79% 70%,85% 25%,91% 75%,96% 35%,100% 65%,100% 100%,0 100%)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:center}
+.kicker{display:inline-block;background:var(--k);color:var(--y);font-weight:800;padding:6px 12px;transform:rotate(-2deg);font-size:16px}
+.name{font-size:clamp(64px,10.5vw,150px);line-height:.86;text-transform:uppercase;margin:16px 0 8px;letter-spacing:-1px}
+.name span{display:block}.name span+span{color:var(--r);-webkit-text-stroke:0}
+.tag{font-size:clamp(20px,2.4vw,26px);font-weight:600;max-width:30ch;margin:0 0 22px}
+.tag .mark{font-size:1.1em}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.poster{position:relative;aspect-ratio:4/5;background:var(--k);border:4px solid var(--k);box-shadow:12px 12px 0 var(--r);transform:rotate(2deg)}
+.poster svg{position:absolute;inset:0;width:100%;height:100%}
+.tape{position:absolute;width:120px;height:32px;background:rgba(255,253,245,.75);top:-14px;left:50%;transform:translateX(-50%) rotate(-4deg)}
+.live{position:absolute;right:-18px;top:18%;background:var(--r);color:#fff;font-family:Anton,sans-serif;font-size:28px;padding:14px 14px;border-radius:50%;width:104px;height:104px;display:grid;place-items:center;text-align:center;line-height:1;transform:rotate(12deg);box-shadow:0 0 0 4px var(--k)}
+@media (prefers-reduced-motion:no-preference){.beam{animation:flick 4s infinite}@keyframes flick{0%,92%,100%{opacity:.9}94%{opacity:.55}96%{opacity:.95}}}
+/* ticker */
+.ticker{background:var(--r);color:#fff;border-block:4px solid var(--k);overflow:hidden;white-space:nowrap}
+.ticker div{display:inline-block;padding:12px 0;font-family:Anton,sans-serif;font-size:24px;text-transform:uppercase}
+.ticker i{font-style:normal;color:var(--y);padding:0 18px}
+@media (prefers-reduced-motion:no-preference){.ticker div{animation:roll 28s linear infinite}@keyframes roll{to{transform:translateX(-50%)}}}
+/* clips */
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px 24px;margin-bottom:28px}
+.head p{margin:0;max-width:46ch}
+.clips{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:22px}
+.clip{background:var(--card);border:3px solid var(--line);box-shadow:6px 6px 0 var(--y)}
+.clip .vid{aspect-ratio:4/3;width:100%;background:repeating-linear-gradient(135deg,#1d1d1d 0 14px,#232323 14px 28px);display:grid;place-items:center;color:var(--y);text-align:center;position:relative}
+.clip .vid .play{width:72px;height:72px;border-radius:50%;background:var(--y);display:grid;place-items:center}
+.clip .vid small{position:absolute;bottom:10px;left:10px;right:10px;color:#cfcfcf;font-size:13px}
+.clip h3{font-size:24px;padding:14px 16px 4px;text-transform:uppercase}
+.clip p{margin:0;padding:0 16px 16px;font-size:15px}
+/* story */
+.story{background:var(--k);color:var(--w)}
+.story .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(24px,5vw,72px);align-items:center}
+.swap{display:grid;gap:10px}
+.swap div{border:3px solid var(--w);padding:16px 18px;font-weight:800;font-size:20px;display:flex;justify-content:space-between;gap:12px}
+.swap div s{color:#9a9a9a}
+.swap div:last-child{background:var(--y);color:var(--k);border-color:var(--y);transform:rotate(-1.5deg)}
+.story h2 span{color:var(--y)}
+.story p{max-width:60ch}
+.does{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding:0;list-style:none}
+.does li{border:2px solid var(--y);color:var(--y);padding:6px 12px;font-weight:800;font-size:15px}
+/* shows */
+.shows{display:grid;gap:12px}
+.show{display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:16px;align-items:center;border:3px solid var(--line);padding:14px 18px;background:var(--card)}
+.show .d{font-family:Anton,sans-serif;font-size:30px;line-height:1;text-transform:uppercase;white-space:nowrap}
+.show .d small{display:block;font-size:16px;color:var(--r)}
+.show b{display:block;font-size:19px}
+.empty{border:3px dashed var(--line);padding:22px;text-align:center}
+/* booking */
+.book{background:var(--y);color:var(--k)}
+.book .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,64px);align-items:start}
+.book ul{padding-left:20px}
+form{background:var(--w);color:var(--k);border:4px solid var(--k);box-shadow:10px 10px 0 var(--k);padding:clamp(18px,3vw,32px);display:grid;gap:16px}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+label{display:grid;gap:6px;font-weight:800;font-size:15px}
+input,select,textarea{font:16px Archivo,sans-serif;min-height:48px;padding:10px 12px;border:2px solid var(--k);background:#fff;color:var(--k);border-radius:0;width:100%}
+textarea{min-height:110px;resize:vertical}
+.chips{display:flex;flex-wrap:wrap;gap:8px;border:0;padding:0;margin:0}
+.chips legend{font-weight:800;font-size:15px;margin-bottom:6px}
+.chips label{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--k);padding:0 12px;min-height:44px;font-weight:600;cursor:pointer}
+.chips input{width:18px;min-height:0;height:18px;accent-color:var(--r)}
+.chips label:has(input:checked){background:var(--k);color:var(--y)}
+.req{color:var(--r)}
+.fine{font-size:13px;margin:0}
+.ok{display:none;border:3px solid var(--k);background:var(--k);color:var(--y);padding:20px}
+.ok.show{display:block}
+/* footer */
+footer{background:var(--k);color:var(--w);text-align:center}
+footer .big{font-family:Anton,sans-serif;font-size:clamp(48px,10vw,120px);line-height:.9;text-transform:uppercase;color:var(--y)}
+.socials{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:22px 0}
+.socials a,.socials span{border:2px solid var(--w);padding:10px 16px;font-weight:800;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.socials a:hover{background:var(--y);color:var(--k);border-color:var(--y)}
+footer small{color:#aaa}
+@media (max-width:860px){.hero .wrap,.story .wrap,.book .wrap{grid-template-columns:minmax(0,1fr)}.poster{width:100%;max-width:380px;margin:16px auto 0}}
+@media (max-width:600px){.row{grid-template-columns:minmax(0,1fr)}.show{grid-template-columns:minmax(0,1fr)}.live{right:-6px;width:88px;height:88px;font-size:22px}nav ul{order:3;width:100%}}
+</style>
+</head>
+<body>
+<div class="sample">Sample concept by Breezy Career Services for Smashius Clay. Not live yet. Clips, photos and show dates are placeholders until his media is in.</div>
+
+<nav>
+ <a class="logo" href="#top">SMASHIUS <b>CLAY</b></a>
+ <ul><li><a href="#clips">Clips</a></li><li><a href="#story">Story</a></li><li><a href="#shows">Shows</a></li><li><a href="#book">Book</a></li></ul>
+ <a class="btn" href="#book">Book Smash</a>
+</nav>
+
+<header class="hero" id="top">
+ <div class="wrap">
+  <div>
+   <span class="kicker">Chicago's own · Stand-up comedian</span>
+   <h1 class="name"><span>Smashius</span><span>Clay</span></h1>
+   <p class="tag">Quit the IT job. Kept the jokes. <span class="mark">Pull up.</span></p>
+   <div class="cta">
+    <a class="btn black" href="#book">Book a show</a>
+    <a class="btn ghost" href="#clips">Watch clips</a>
+   </div>
+  </div>
+  <div class="poster" aria-label="Illustration of a microphone under a spotlight">
+   <span class="tape"></span>
+   <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+     <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd60a" stop-opacity=".85"/><stop offset="1" stop-color="#ffd60a" stop-opacity="0"/></linearGradient>
+     <radialGradient id="pool" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffd60a" stop-opacity=".55"/><stop offset="1" stop-color="#ffd60a" stop-opacity="0"/></radialGradient>
+     <pattern id="brick" width="60" height="30" patternUnits="userSpaceOnUse"><rect width="60" height="30" fill="#151515"/><path d="M0 15H60M30 0V15M0 15V30M60 15V30" stroke="#232323" stroke-width="3"/></pattern>
+    </defs>
+    <rect width="400" height="500" fill="url(#brick)"/>
+    <polygon class="beam" points="170,0 230,0 340,440 60,440" fill="url(#beam)"/>
+    <ellipse cx="200" cy="452" rx="150" ry="26" fill="url(#pool)"/>
+    <!-- stand -->
+    <rect x="195" y="250" width="10" height="200" fill="#2b2b2b"/><rect x="198" y="250" width="3" height="200" fill="#5a5a5a"/>
+    <path d="M150 452 L200 430 L250 452" stroke="#2b2b2b" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <!-- mic -->
+    <rect x="186" y="190" width="28" height="70" rx="8" fill="#1f1f1f"/><rect x="190" y="190" width="6" height="70" rx="3" fill="#4a4a4a"/>
+    <circle cx="200" cy="160" r="44" fill="#3a3a3a"/>
+    <circle cx="200" cy="160" r="44" fill="none" stroke="#0d0d0d" stroke-width="4"/>
+    <g stroke="#262626" stroke-width="3"><path d="M160 150H240M160 165H240M163 135H237M168 180H232M178 122H222"/><path d="M185 118V203M200 116V204M215 118V203"/></g>
+    <path d="M176 128 A40 40 0 0 1 222 122" stroke="#fffdf5" stroke-opacity=".55" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <!-- scribbles -->
+    <text x="40" y="70" font-family="Permanent Marker, cursive" font-size="30" fill="#e5161d" transform="rotate(-8 40 70)">HA!</text>
+    <text x="290" y="330" font-family="Permanent Marker, cursive" font-size="26" fill="#fffdf5" transform="rotate(10 290 330)">sheesh</text>
+   </svg>
+   <span class="live">LIVE<br>&amp;<br>LOUD</span>
+  </div>
+ </div>
+</header>
+
+<div class="ticker" aria-hidden="true"><div>
+ Stand-up<i>★</i>Skits<i>★</i>Full sets<i>★</i>Hosting<i>★</i>Brand promos<i>★</i>Collabs<i>★</i>Chicago to everywhere<i>★</i>
+ Stand-up<i>★</i>Skits<i>★</i>Full sets<i>★</i>Hosting<i>★</i>Brand promos<i>★</i>Collabs<i>★</i>Chicago to everywhere<i>★</i>
+</div></div>
+
+<section class="band" id="clips"><div class="wrap">
+ <div class="head"><h2>Clips</h2><p>Stand-up, skits and full sets. If you laughed on your phone, imagine it in the room.</p></div>
+ <div class="clips" id="clipGrid"></div>
+ <p class="fine" style="margin-top:16px">Placeholder tiles. His real clips go here once his Google Drive is shared.</p>
+ <p style="margin-top:18px"><a class="btn red" href="https://www.youtube.com/@Smashius_Clay">More on YouTube</a></p>
+</div></section>
+
+<section class="band story" id="story"><div class="wrap">
+ <div class="swap" aria-label="Career change">
+  <div><span>Job title</span><s>IT consultant</s></div>
+  <div><span>Now</span><span>Stand-up comedian</span></div>
+ </div>
+ <div>
+  <h2>From fixing computers to <span>breaking rooms</span></h2>
+  <p>Smashius Clay walked away from a career in IT to chase the thing that actually lit him up: making a room fall apart laughing. Out of Chicago, he's on stages and on your feed with stand-up, full sets, skits, motivational videos and promo work for businesses that want their brand to hit different.</p>
+  <ul class="does"><li>Stand-up</li><li>Full sets</li><li>Skits</li><li>Hosting</li><li>Brand promos</li><li>Creator collabs</li></ul>
+ </div>
+</div></section>
+
+<section class="band" id="shows"><div class="wrap">
+ <div class="head"><h2>Catch him live</h2><p>Dates drop here first. Want him in your city? Book below.</p></div>
+ <div class="shows" id="showList"></div>
+ <p class="fine" style="margin-top:12px">Sample dates for layout only. Real shows get added as they're booked.</p>
+</div></section>
+
+<section class="band book" id="book"><div class="wrap">
+ <div>
+  <h2>Book Smashius</h2>
+  <p>Comedy shows, private parties, campus events, hosting gigs and brand content. Tell him what you've got and he'll get back to you.</p>
+  <ul>
+   <li>The more detail, the faster the yes.</li>
+   <li>Serious inquiries get a quick call to lock it in.</li>
+   <li>Booking for a brand? Ask about promo videos and skits.</li>
+  </ul>
+  <p class="fine">Prefer email? <b>SCMG.Savant.Ali@gmail.com</b></p>
+ </div>
+ <div>
+  <form id="bookForm" name="booking" method="POST" data-netlify="true" netlify-honeypot="company_site">
+   <input type="hidden" name="form-name" value="booking">
+   <p hidden><label>Leave blank <input name="company_site"></label></p>
+   <fieldset class="chips"><legend>What's the gig? <span class="req">*</span></legend>
+    <label><input type="radio" name="gig" value="Comedy show / club" required> Comedy show</label>
+    <label><input type="radio" name="gig" value="Private party"> Private party</label>
+    <label><input type="radio" name="gig" value="College / campus"> Campus</label>
+    <label><input type="radio" name="gig" value="Hosting / MC"> Hosting</label>
+    <label><input type="radio" name="gig" value="Brand promo / content"> Brand promo</label>
+    <label><input type="radio" name="gig" value="Other"> Other</label>
+   </fieldset>
+   <div class="row">
+    <label><span>Your name <span class="req">*</span></span><input id="f-name" name="name" autocomplete="name" required></label>
+    <label>Organization or venue<input id="f-org" name="organization" autocomplete="organization"></label>
+   </div>
+   <div class="row">
+    <label><span>Email <span class="req">*</span></span><input id="f-email" type="email" name="email" autocomplete="email" required></label>
+    <label>Phone<input id="f-phone" type="tel" name="phone" autocomplete="tel"></label>
+   </div>
+   <div class="row">
+    <label><span>Event date <span class="req">*</span></span><input id="f-date" type="date" name="date" required></label>
+    <label><span>City and state <span class="req">*</span></span><input id="f-city" name="city" required placeholder="e.g. Chicago, IL"></label>
+   </div>
+   <div class="row">
+    <label>Crowd size<select id="f-crowd" name="crowd"><option value="">Pick one</option><option>Under 50</option><option>50–150</option><option>150–500</option><option>500+</option></select></label>
+    <label>Budget<select id="f-budget" name="budget"><option value="">Pick one</option><option>Under $250</option><option>$250–$500</option><option>$500–$1,000</option><option>$1,000–$2,500</option><option>$2,500+</option><option>Let's talk</option></select></label>
+   </div>
+   <label>Set length and details<textarea id="f-details" name="details" placeholder="How long should he go? Clean or grown-folks? Other acts on the bill?"></textarea></label>
+   <button class="btn red" type="submit">Send booking request</button>
+   <p class="fine">No spam. Your info only goes to Smashius Clay's team.</p>
+   <div class="ok" id="ok" role="status"></div>
+  </form>
+ </div>
+</div></section>
+
+<footer class="band">
+ <div class="big">Stay smashed.</div>
+ <div class="socials">
+  <a href="https://www.youtube.com/@Smashius_Clay">YouTube @Smashius_Clay</a>
+  <span>Instagram · Smashius Clay</span>
+  <span>Facebook · Smashius Clay</span>
+  <span>Snapchat · Smashius_Clay</span>
+ </div>
+ <small>© Smashius Clay Media Group (SCMG) · Site by Breezy Career Services</small>
+</footer>
+
+<script>
+{
+const clips=[
+ {t:"Stand-up clip #1",d:"His strongest 60 seconds goes here."},
+ {t:"Stand-up clip #2",d:"A crowd-work moment that shows he can work any room."},
+ {t:"Skit",d:"One of his skits, for the folks who found him on their feed."},
+ {t:"Full set",d:"A longer set for bookers who want to see how he holds a stage."},
+ {t:"Brand promo",d:"Promo work for a business, for brands thinking of hiring him."},
+ {t:"Collab",d:"A collab with another creator."}
+];
+document.getElementById('clipGrid').innerHTML=clips.map(c=>`<article class="clip"><div class="vid"><div class="play"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l14 8-14 8z" fill="#0d0d0d"/></svg></div><small>Video from his Drive goes here</small></div><h3>${c.t}</h3><p>${c.d}</p></article>`).join('');
+
+const shows=[
+ {m:"Dec",d:"12",v:"Sample comedy showcase",c:"Chicago, IL",l:"Tickets"},
+ {m:"Jan",d:"09",v:"Sample hosting gig",c:"Chicago, IL",l:"Tickets"},
+ {m:"Feb",d:"14",v:"Sample date-night show",c:"Your city?",l:"Book it"}
+];
+document.getElementById('showList').innerHTML=shows.length?shows.map(s=>`<div class="show"><div class="d"><small>${s.m}</small>${s.d}</div><div><b>${s.v}</b>${s.c}</div><a class="btn black" href="#book">${s.l}</a></div>`).join(''):'<div class="empty">No dates posted right now. Follow on Instagram for drops, or book him for yours.</div>';
+
+/* On the live site (Netlify), the form posts to Netlify Forms and emails his team.
+   In this preview there is nowhere to send it, so it shows a confirmation instead. */
+const LIVE=/netlify\.app$|smashiusclay\./i.test(location.hostname);
+const f=document.getElementById('bookForm'),ok=document.getElementById('ok');
+f.addEventListener('submit',e=>{
+ if(LIVE)return;
+ e.preventDefault();
+ const gig=(f.querySelector('input[name=gig]:checked')||{}).value||'';
+ const name=f.elements['name'].value.trim().split(' ')[0]||'there';
+ ok.textContent=`Preview only: on the live site, this ${gig.toLowerCase()} request would go straight to Smashius Clay's inbox. Thanks, ${name}!`;
+ ok.classList.add('show');
+});
+}
+</script>
+</body>
+</html>
